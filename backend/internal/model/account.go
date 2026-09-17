@@ -1,6 +1,9 @@
 package model
 
-import "time"
+import (
+	"context"
+	"time"
+)
 
 const (
 	UserStatusActive   = "active"
@@ -60,4 +63,8 @@ type UserRole struct {
 
 func (UserRole) TableName() string {
 	return "user_roles"
+}
+
+func CreateUser(ctx context.Context, user *User) error {
+	 return DB.WithContext(ctx).Create(user).Error
 }

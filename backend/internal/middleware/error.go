@@ -2,12 +2,11 @@ package middleware
 
 import (
 	"errors"
+	"knowledge/internal/apperror"
+	"knowledge/internal/response"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-
-	"task-manager/internal/apperror"
-	"task-manager/internal/response"
 )
 
 func ErrorHandler() gin.HandlerFunc {

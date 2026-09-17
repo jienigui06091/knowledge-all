@@ -14,5 +14,6 @@ func SetRouter(r *gin.Engine) {
 
 	//认证接口
 	authGroup := r.Group("/api/auth")
-	authGroup.GET("/login",controller.)
+	authGroup.GET("/login",controller.Login)
+	authGroup.POST("/register",controller.Register)
 }

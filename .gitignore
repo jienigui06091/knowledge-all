@@ -1,2 +1,32 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Shared VS Code settings: keep only configurations intended for the team.
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# Backend local configuration. Keep the committed template only.
+/backend/.env
+/backend/.env.*
+!/backend/.env.example
+
+# Go build, test, cache, coverage, and Delve artifacts.
+/backend/server
+/backend/server.exe
+/backend/*.exe
+/backend/*.test
+/backend/*.out
+/backend/**/__debug_bin*
+/backend/.gocache/
+/backend/.gotmp/
+/backend/coverage/
+/backend/coverage.out
+
+# Backend local logs and temporary files.
+/backend/*.log
+/backend/tmp/
 /ChatGPT Image 2026年9月17日 14_32_06.png
 /团队知识与问答平台_Go_Vue_开发需求文档.docx

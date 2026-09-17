@@ -1,5 +1,20 @@
-server.exe
-.vscode/launch.json
-frontend/
+# Local environment configuration. Keep the sample configuration in version control.
 .env
-.gocache
+.env.*
+!.env.example
+
+# Go build, test, cache, coverage, and Delve artifacts.
+server
+server.exe
+*.exe
+*.test
+*.out
+__debug_bin*
+.gocache/
+.gotmp/
+coverage/
+coverage.out
+
+# Local logs and temporary files.
+*.log
+tmp/

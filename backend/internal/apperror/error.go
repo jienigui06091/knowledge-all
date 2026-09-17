@@ -9,9 +9,9 @@ type AppError struct {
 	Err        error
 }
 
-func New(code, httpStatus int, message string) *AppError {
+func New(httpStatus int, message string) *AppError {
 	return &AppError{
-		Code:       code,
+		Code:       200,
 		HTTPStatus: httpStatus,
 		Message:    message,
 	}
