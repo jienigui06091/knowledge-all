@@ -17,7 +17,7 @@ func GenerateJwtToken(username string, userID int64) (string, error) {
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	return token.SignedString([]byte(JWTSecret()))
-}
+}	
 
 func JWTSecret() string {
 	if secret := os.Getenv("JWT_SECRET"); secret != "" {

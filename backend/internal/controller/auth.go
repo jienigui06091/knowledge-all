@@ -10,7 +10,27 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type LoginReq struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
 func Login(c *gin.Context) {
+
+	var req LoginReq
+	err := c.ShouldBind(&req)
+	if err != nil {
+		_ = c.Error(apperror.New(http.StatusBadRequest, "请输入正确的用户名密码"))
+		return
+	}
+	token, err := service.Login(c.Request.Context(), req.Username, req.Password)
+	if err != nil {
+		c.Error(apperror.New(http.StatusInternalServerError, err.Error()))
+		return
+	}
+	response.Success(c, gin.H{
+		"token":token,
+	})
 
 }
 

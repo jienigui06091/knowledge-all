@@ -66,5 +66,14 @@ func (UserRole) TableName() string {
 }
 
 func CreateUser(ctx context.Context, user *User) error {
-	 return DB.WithContext(ctx).Create(user).Error
+	return DB.WithContext(ctx).Create(user).Error
+}
+
+func SelectByusername(ctx context.Context, username string) (User, error) {
+
+	var user User
+	if err := DB.WithContext(ctx).Where("username = ?", username).First(&user).Error; err != nil {
+		return User{}, err
+	}
+	return user, nil
 }
